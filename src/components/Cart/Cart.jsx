@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Cart.css'
 const Cart = ({cart,handelRemoveFromCart}) => {
     
     //conditional Rendering
@@ -18,10 +18,13 @@ const Cart = ({cart,handelRemoveFromCart}) => {
 
     return (
         <div>
-            <h2>Order Summary: {cart.length}</h2>
+            <h2 className={cart.length === 1 ? 'red' : 'cadetblue'}>Order Summary: {cart.length}</h2>
 
-            {/* 2. ternary: condition */}
-            {cart.length > 2 ? <span>Aro kino</span> : <span>Fokira</span>}
+            <p className={`bold ${cart.length === 3 ? 'maroon' : 'cadetblue'}`}>Something</p>
+
+
+            {/* 2. ternary: condition  2er besi product kinle (aro kino execute korbe) na hole fokira execute krbe*/}
+            {cart.length > 2 ? <span className='orange'>Aro kino</span> : <span>Fokira</span>}
             {message}
 
             {
@@ -57,4 +60,9 @@ conditional rendering
 2. ternary: condition ? 'for true' : 'false'
 3. logical && (if the condition is true then the next thing will be displayed)
 4. logical || (if the condition is false then the next thing will be displayed)
+*/
+
+
+/**
+ * Conditional css styling
 */
