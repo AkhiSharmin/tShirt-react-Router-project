@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import TShirt from '../TShirt/TShirt';
 import Cart from '../Cart/Cart';
 import './Home.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     
@@ -10,10 +12,10 @@ const Home = () => {
 
     const [cart, setCart] = useState([])
     const handelAddToCart = (tShirt) => {
-        const exist = cart.find(ts => ts._id === id);
+        const exists = cart.find(ts => ts._id === tShirt._id);
 
-        if(exist){
-
+        if(exists){
+            toast('You have already added This T-Shirt')
         }
         else{
             const newCart = [...cart, tShirt]
